@@ -5,7 +5,17 @@ import './App.css'
 export default class App extends React.Component {
 
 
+  componentDidMount(){
 
+    const container = document.querySelector('.container')
+    container.style.cursor='pointer';
+
+    container.addEventListener('click', ()=> {
+      container.style.backgroundColor='blue';
+      container.style.color='#FFF';
+      
+    })
+  }
 
 
   render() {
