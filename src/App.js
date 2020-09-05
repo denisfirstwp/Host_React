@@ -1,7 +1,6 @@
 
 import React from 'react';
 import './App.css'
-import meujs from './meujs'
 
 export default class App extends React.Component {
 
