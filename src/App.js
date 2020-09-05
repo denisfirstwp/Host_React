@@ -1,28 +1,52 @@
 
 import React from 'react';
 import './App.css'
+import meujs from './meujs'
 
 export default class App extends React.Component {
 
 
-  componentDidMount(){
+  componentDidMount() {
+
 
     const container = document.querySelector('.container')
-    container.style.cursor='pointer';
+    const marcus = document.querySelector('.mcv').style;
+    const heart = document.querySelector('.fa-heart').style;
+    container.style.cursor = 'pointer';
+    let marcusSize = 12;
+    let toggleMarcusSize = false;
 
-    container.addEventListener('click', ()=> {
-      container.style.backgroundColor='blue';
-      container.style.color='#FFF';
-      
+
+    container.addEventListener('click', () => {
+
+      container.classList.toggle('muda');
+
     })
+
+    setInterval(() => {
+      if (marcusSize < 130 && toggleMarcusSize === false) {
+        marcusSize = marcusSize + 4;
+      } else {
+        marcusSize = marcusSize - 4;
+        toggleMarcusSize = true
+        if (marcusSize === 12) {
+          toggleMarcusSize = false;
+        }
+      }
+      console.log(marcusSize);
+      container.classList.toggle('muda');
+      marcus.fontSize = `${marcusSize}pt`;
+      heart.fontSize = `${marcusSize}pt`;
+
+    }, 50);
   }
 
 
   render() {
     return (
       <div className='container' id='chave'>
-        <h1>Fala ai galera !!!</h1>
-        <h2>Fazendo um teste de hospedagem React !!!!</h2>
+        <p className='mcv'>I LOVE YOU</p>
+        <i class="fas fa-heart"></i>
       </div>
     )
   }
